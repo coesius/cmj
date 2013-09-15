@@ -12,7 +12,7 @@ block content
             img(src="/images/search/home.png")
         p.title="搜索结果"
         img.searchLine(src="/images/search/line.png")
-        #resultContainer
+        .resultContainer
             - for (var i = 0; i < result.length; ++i) {
                 - if (!result[i].previous) {
                     .searchWork
@@ -31,7 +31,7 @@ block content
         #previousTitle
             p.title="往届作品"
             img.searchLine(src="/images/search/line.png")
-        #previousContent
+        .resultContent
             - for (var i = 0; i < result.length; ++i) {
                 - if (result[i].previous) {
                     .searchWorlk

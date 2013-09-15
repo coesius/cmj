@@ -230,7 +230,7 @@ body {
     margin-top: 12px;
     margin-left: 56px;
 }
-#resultContainer {
+.resultContainer {
     margin-top: 22px;
     margin-left: 56px;
     width: 1160px;
