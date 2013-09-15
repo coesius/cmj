@@ -99,7 +99,7 @@
 
     <h3 class="demo-panel-title">添加项目成员</h3>
         <div class="row"><div class="span12">
-        <table class="table table-condensed">
+        <table class="table table-condensed" id="groupMemberInfo">
               <thead>
                 <tr>
                   <th>#</th>
@@ -125,22 +125,22 @@
 
         
         <div class="span3">
-          <input type="text" value="" placeholder="分工" class="span3">
+          <input type="text" value="" placeholder="分工" class="span3" id="work">
         </div>              x
         <div class="span3">
-          <input type="text" value="" placeholder="姓名" class="span3">
+          <input type="text" value="" placeholder="姓名" class="span3" id="_name">
         </div>
         <div class="span3">
-          <input type="text" value="" placeholder="手机" class="span3">
+          <input type="text" value="" placeholder="手机" class="span3" id="_mobile">
         </div>
         <div class="span3">
-          <input type="text" value="" placeholder="邮箱" class="span3">
+          <input type="text" value="" placeholder="邮箱" class="span3" id="eMail">
         </div>
       </div>
       <div class="row">
     
-          <div class="span3"><a href="#fakelink" class="btn btn-large btn-block btn-primary">确认添加</a></div>
-          <div class="span3"><a href="#fakelink" class="btn btn-large btn-block btn-danger">删除最后修改</a></div>
+          <div class="span3"><a id="push" href="#fakelink" class="btn btn-large btn-block btn-primary">确认添加</a></div>
+          <div class="span3"><a id="pop" href="#fakelink" class="btn btn-large btn-block btn-danger">删除最后修改</a></div>
         </div></div><br \><br \><hr>
         </div><div class="container">
 
@@ -151,7 +151,7 @@
             <img src="images/icons/Book@2x.png">
           </div>
 
-          <a href="#" class="btn btn-primary btn-large btn-block">上传</a>
+          <a onclick="openBrowse()" class="btn btn-primary btn-large btn-block">上传</a>
 
           <p class="demo-download-text">在这里上传封面</p>
         </div>
@@ -160,9 +160,9 @@
 
           
           <p class="demo-download-text">在下方输入外链链接</p>
-          <input type="text" value="" placeholder="作品名称" class="span3">
+          <input type="text" value="" class="span3">
           <h3 class="demo-download-text">OR</h3>
-          <a href="#" class="btn btn-primary btn-large btn-block">上传</a>
+          <a class="btn btn-primary btn-large btn-block">上传</a>
 
           <p class="demo-download-text">在这里上传源文件</p>
           
@@ -202,5 +202,26 @@
     <script src="/submit/js/jquery.stacktable.js"></script>
     <script src="http://vjs.zencdn.net/c/video.js"></script>
     <script src="/submit/js/application.js"></script>
+    <script>
+        function openBrowse(){
+            var ie=navigator.appName=="Microsoft Internet Explorer" ? true : false;
+            if(ie){
+                document.getElementById("file").click();
+                document.getElementById("filename").value=document.getElementById("file").value;
+            }else{
+                var a=document.createEvent("MouseEvents");
+                a.initEvent("click", true, true);
+                document.getElementById("file").dispatchEvent(a);
+            }
+        }
+        $("#pop").click(function() {
+            var table = document.getElementById("groupMemberInfo");
+            table.deleteRow(table.rows.length - 1);
+        });
+        $("#push").click(function() {
+            var table = document.getElementById("groupMemberInfo");
+            table.innerHTML += "<tr><td>" + table.rows.length + "</td><td>" + document.getElementById("_name").value + "</td><td>" + document.getElementById("_mobile").value + "</td><td>" + document.getElementById("eMail").value + "</td><td>" + document.getElementById("work").value + "</td></tr>"
+        });
+    </script>
   </body>
 </html>
