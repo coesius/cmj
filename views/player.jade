@@ -20,8 +20,8 @@ block content
         a#home(href="/")
             img(src='/images/search/home.png')
         p#videoTitle=video.tags[0] + " > " + video.name
-        img#searchLine(src='/images/search/line.png')
-        #resultContainer
+        img.searchLine(src='/images/search/line.png')
+        .resultContainer
             #rightContent
             #leftContent
                 - if (video.type === "纪录片" ||  video.type === "宣传片" || video.type === "documentory" || video.type === "proma") {
