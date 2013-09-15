@@ -24,10 +24,15 @@ $(document).ready(function() {
     $("#logout").click(function() {
         document.cookie = "username=";
         document.cookie = "userID=";
-		location = location;
+        location = location;
     });
     $("#background1").click(function() {
         $("#introContainer").show();
+    });
+    $("#background2").click(function() {
+        $.post("/search", {"keywords": "#往届", sort: "time"}, function(data) {
+            document.write(data);
+        });
     });
     $("#introExit").click(function() {
         $("#introContainer").hide();
