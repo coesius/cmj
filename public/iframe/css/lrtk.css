@@ -1,0 +1,26 @@
+/* common */
+#album *{margin:0;padding:0;font-size:12px;}
+#album input,#album button,#album select,#album textarea{outline:none;}
+#album ul,#album li,#album dl,#album ol{list-style:none;}
+#album iframe,#album img{border:none;}
+#album textarea{resize:none}
+#album body{color:#333; font-family:'Microsoft YaHei',Arial;margin:0 0 0 0;}
+#album h1,#album h2,#album p,#album ul,#album dl,#album div{text-align:left; font-weight:normal;}
+#album input[type="submit"],input[type="button"] {cursor:pointer;}
+#album input{cursor:expression(this.type=="button"||this.type=="submit"||this.type=="radio"||this.type=="checkbox" ? "pointer" :"text"); }/* IE6 */
+
+//*+html img {margin-bottom:0!important;} /* Fix IE7 */
+//html>body img {margin-bottom:-3px;}  /* Fix FireFox */
+//@media all and (min-width:0px){img {margin-bottom:-2px!important;}}  /*Fix Opera */
+
+#album p,#album div,#album span,#album em,#album i,#album b,#album s,#album ul,#album li,#album dl,#album dt,#album dd,#album td{ word-wrap:break-word; word-break:break-all; vertical-align:top;}
+#album th,#album i,#album b,#album s{ font-style:normal; font-weight:normal; text-decoration:none;}
+#album div,#album p{ text-align:center; line-height:30px;}
+#album .infopic{ width:852px; height:542px; position:relative; overflow:hidden; margin:15px auto;}
+#album .piclist{ height:542px; position:absolute; top:0; left:0;}
+#album .piclist li{ height:542px; margin-right:15px; float:left; overflow:hidden;}
+#album .piclist li img{ height:542px;}
+
+#album .pic_prev,.pic_next{ width:30px; height:50px; background:url(../images/icon.png) no-repeat; position:absolute; top:246px; cursor:pointer;}
+#album .pic_prev{ background-position:0 0; left:0;}
+#album .pic_next{ background-position:0 -60px; right:0;}

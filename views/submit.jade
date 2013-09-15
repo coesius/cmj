@@ -1,0 +1,100 @@
+!!!5
+html
+    head
+        link(rel="stylesheet", type="text/css", href="/stylesheets/style.css")
+        script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    body(style="background-image: url('/images/index/bg.jpg');background-position: 50% 0%; overflow: scroll")
+        div(style="height: 150px; margin-left: 50%")
+            div(style="position: absolute; margin-left: -330px")
+                .ball#ball1(onclick="$('form').hide();$('#exam_form').show()")
+                    p.ball_title#exam_title 案例
+                .ball#ball2(onclick="$('form').hide();$('#video_form').show()")
+                    p.ball_title#video_title 视频
+                .ball#ball3(onclick="$('form').hide();$('#media_form').show()")
+                    p.ball_title#mage_title 媒体
+        form#video_form(action="/upload", method="post", enctype="multipart/form-data")
+            p 视频
+            p 类型
+                input(type="radio", name="type", value="example")
+                案例
+                input(type="radio", name="type", value="proma")
+                宣传片
+                input(type="radio", name="type", value="documentory")
+                纪录片
+                input(type="radio", name="type", value="paperMedia")
+                纸质媒体
+                input(type="radio", name="type", value="netMedia")
+                网络媒体
+            p 名称:
+                input(type="text", name="name")
+            p 负责人:
+                input(type="text", name="person")
+            p 手机:
+                input(type="text", name="mobile")
+            p 剧组成员:
+            table#table_video
+                tr
+                    td.cell 姓名
+                    td.cell 分工
+                    td.cell 手机
+                    td.cell 邮箱
+                - for (var i = 0; i < 6; ++i) {
+                    tr
+                    - var fromCol = ["_name", "work", "_mobile", "eMail"];
+                    - for (var j = 0; j < 4; ++j) {
+                        - if (i < 2) {
+                            td(style="display: none")
+                                input(type="text", name=fromCol[j], value="miao")
+                        - } else {
+                            td
+                                input(type="text", name=fromCol[j])
+                        - }
+                    - }
+                - }
+            input(type="button", onclick="var table = document.getElementById('table_video'); var tr = table.insertRow(table.rows.length); tr.innerHTML = '<td><input type=\"text\" name=\"_name\"></td><td><input type=\"text\" name=\"work\"></td><td><input type=\"text\" name=\"_mobile\"></td><td><input type=\"text\" name=\"eMail\"></td>'", value="+")
+            p 影片简介
+            textarea(style="width: 710px; height: 100px", name="introduction")
+            p 影片链接
+            input(type="text", name="link")
+            input(type="file", name="file")
+            input(type="file", name="cover")
+            br
+            input(type="submit")
+        form#media_form(action="/upload", method="post", enctype="multipart/form-data")
+            input(type="hidden", name="submitType", value="media")
+            p 媒体
+            p 类型
+                input(type="radio", name="type", value="纸质媒体")
+                纸质媒体
+                input(type="radio", name="type", value="网络媒体")
+                网络媒体
+            p 项目名称:
+                input(type="text", name="projectName")
+            p 负责人:
+                input(type="text", name="person")
+            p 手机:
+                input(type="text", name="mobile")
+            p 项目组成员:
+            table#table_media
+                tr
+                    td.cell 姓名
+                    td.cell 分工
+                    td.cell 手机
+                    td.cell 邮箱
+                - for (var i = 0; i < 4; ++i) {
+                    tr
+                    - var fromCol = ["_name", "work", "_mobile", "eMail"];
+                    - for (var j = 0; j < 4; ++j) {
+                        td
+                            input(type="text", name=fromCol[j])
+                    - }
+                - }
+            input(type="button", onclick="var table = document.getElementById('table_media'); var tr = table.insertRow(table.rows.length); tr.innerHTML = '<td><input type=\"text\" name=\"_name\"></td><td><input type=\"text\" name=\"work\"></td><td><input type=\"text\" name=\"_mobile\"></td><td><input type=\"text\" name=\"eMail\"></td>'", value="+")
+            p 项目简介
+            textarea(style="width: 710px; height: 100px", name="introduction")
+            p 刊物电子版：
+                input(type="file", name="file")
+            p 或网站首页链接：
+                input(type="text", name="url")
+            br
+            input(type="submit")

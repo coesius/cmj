@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=gb2312" />
+    <title>HTML—CSS 简易相册 by www.logtu.com</title>
+    <style type="text/css" media="screen">
+            /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+        }
+        body {
+            font-family: Arial, "MS Trebuchet", sans-serif;
+            color:#888;
+        }
+        a{
+            text-decoration:none;
+            color:#8ac;
+        }
+            /* Setup Tabs */
+        ul{
+            background:#000;
+            width:125px; /* Width of Tab Image */
+            float: left;
+            list-style: none;
+            border-right:8px solid black;
+        }
+        ul li{
+            height:75px; /* Height of Tab Image */
+        }
+            /* Setup Tab so normal opacity is 40 and rollover is 100 */
+        ul li a img{
+            /* for IE */
+            -ms-filter:"PRogid:DXImageTransForm.Microsoft.Alpha(Opacity=40)";
+            filter:alpha(opacity=40);
+            /* <a href='http://www.logtu.com' target='_blank'><u>CSS3</u></a> standard */
+            opacity:0.4;
+        }
+        ul li a:hover img{
+            /* for IE */
+            -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter:alpha(opacity=100);
+            /* <a href='http://www.logtu.com' target='_blank'><u>CSS3</u></a> standard */
+            opacity:1.0;
+        }
+        #images{
+            width:500px;
+            height:300px;
+            overflow:hidden;
+            float:left;
+        }
+        #images div img {
+            width: 500px;
+            height: 300px;
+        }
+        ul img {
+            width: 125px;
+            height: 75px;
+        }
+        #wrapper{
+            width:633px;
+            height:300px;
+            border:8px solid black;
+            margin:0px auto;
+        }
+        #credits{
+            width:633px;
+            margin: 0 auto;
+            text-align: right;
+        }
+        p{
+            margin-top:10px;
+            font-size:9pt;
+        }
+        h1#header{
+            width:633px;
+            margin:15px auto 5px;
+            font-size:14pt;color:#f00;
+        }
+        .foot{
+            width:633px;background:#111;font-size:12px;
+            margin:2px auto;border-top:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <ul>
+        <li><a href="#image1" id="tab1"><img src="/files/0/篮球单元杯.jpg" alt="" title="" /></a></li>
+        <li><a href="#image2" id="tab2"><img src="/files/1/All About Neon.jpg" alt="" title="" /></a></li>
+        <li><a href="#image3" id="tab3"><img src="/files/2/舞蹈节.jpg" alt="" title="" /></a></li>
+        <li><a href="#image4" id="tab4"><img src="/files/3/三单单元杯.jpg" alt="" title="" /></a></li>
+    </ul>
+    <div id="images">
+        <div><a name="image1"></a><img src="/files/0/篮球单元杯.jpg" alt="" title="" /></div>
+        <div><a name="image2"></a><img src="/files/1/All About Neon.jpg" alt="" title="" /></div>
+        <div><a name="image3"></a><img src="/files/2/舞蹈节.jpg" alt="" title="" /></div>
+        <div><a name="image4"></a><img src="/files/3/三单单元杯.jpg" alt="" title="" /></div>
+    </div>
+</div>
+</body>
+</html>

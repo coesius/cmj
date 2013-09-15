@@ -1,0 +1,352 @@
+body {
+    overflow-x: hidden;
+    margin: 0 0 0 0;
+    font-family: "微软雅黑";
+}
+#container {
+    position: absolute;
+    width: 1440px;
+    left: 50%;
+    margin-left: -720px;
+    background-color: #e7e7e7;
+    box-shadow: 2px 2px 3px #aaaaaa;
+}
+#logo {
+    position: absolute;
+    margin-left: 102.5px;
+    margin-top: 51.40px;
+}
+#login {
+    position: absolute;
+    margin-left: 1308.04px;
+    margin-top: 44.82px;
+}
+#middle {
+    height: 357px;
+}
+.background {
+    position: absolute;
+}
+#buttonArea {
+    position: absolute;
+    margin-top: 300.04px;
+    left: 50%;
+    margin-left: -250px;
+}
+.buttonBlue {
+    display: none;
+}
+#introBlue {
+    display: inline;
+}
+#introGray {
+    display: none;
+}
+.middleButton {
+    margin-right: 32px;
+}
+#examTitle {
+    margin-left: 102.68px;
+}
+.unit {
+    height: 396px;
+    width: 1440px;
+}
+.unitContainer {
+    position: absolute;
+    left: 50%;
+    height: 404px;
+    margin-left: -631px;
+    width: 1262px;
+}
+.unitContent {
+    position: absolute;
+    margin-top: 82px;
+    background-color: #FFF;
+    height: 314px;
+    width: 1262px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #aaaaaa;
+}
+.worksContent {
+    position: absolute;
+    margin-left: 42px;
+    margin-top: 29px;
+}
+#userInfo {
+    position: absolute;
+    margin-left: 1052.5px;
+    margin-top: 35px;
+    width: 100px;
+    text-align: center;
+    color: #1081eb;
+    font-size: 12px;
+}
+#username {
+    margin: 0 0 0 0;
+}
+#userID {
+    display:none;
+}
+.unitTitle {
+    position: absolute;
+    margin-top: 28px;
+    font-size: 26px;
+    color: #595757;
+    margin-left: 13.02px;
+}
+.leftButton {
+    position: absolute;
+    margin-left: 16px;
+    top: 50%;
+    margin-top:-13.5px;
+}
+.rightButton {
+    position: absolute;
+    margin-left: 1231px;
+    top: 50%;
+    margin-top:-13.5px;
+}
+#search {
+    position: absolute;
+    margin-left: 988px;
+    margin-top: 36px;
+}
+#search img {
+    position: absolute;
+}
+#copyright {
+    position: absolute;
+    margin-left: 1120.22px;
+    margin-top: 13.2px;
+}
+#submit {
+    position: absolute;
+    margin-left: 1159px;
+    margin-top: 45px;
+}
+#modify {
+    position: absolute;
+    margin-left: 1223px;
+    margin-top: 45px;
+}
+#logout {
+    position: absolute;
+    margin-left: 1288px;
+    margin-top: 45px;
+}
+#search input[type="text"] {
+    position: absolute;
+    height: 28px;
+    width: 215px;
+    border: 0px;
+    background-color: rgba(255,255,255,0);
+}
+#search input[type="submit"] {
+    position: absolute;
+    margin-left: 218px;
+    height: 33px;
+    width: 40px;
+    background-color: rgba(255,255,255,0);
+    border: 0px;
+}
+#footer {
+    height: 108px;
+}
+#head {
+    height: 116px;
+}
+.more {
+    position: absolute;
+    margin-left: 1152px;
+    margin-top: 277px;
+}
+.searchWork {
+    margin-right: 4px;
+    display: inline;
+}
+.work {
+    margin-right: 13px;
+    display: inline;
+}
+.worksContent {
+    height: 240px;
+    overflow: hidden;
+}
+.workCover {
+    width: 277px;
+    height: 230px;
+    position: absolute;
+    margin-top: 3px;
+    margin-left: -281px;
+}
+.workBottom {
+    position: absolute;
+    width: 277px;
+    height: 49px;
+    background-color: rgba(0,0,0,0.34);
+    margin-left: -281px;
+    margin-top: 184px;
+    font-size: 15px;
+    color: #FFF;
+    display: inline;
+}
+.workName {
+    position: absolute;
+    margin-top: 9px;
+    margin-left: 12px;
+}
+.workInfo {
+    float: right;
+    margin-top: 27px;
+    margin-right: 14px;
+    font-size: 9px;
+}
+.workInfo img {
+    margin-top: 2px;
+}
+#title {
+    margin-top: 0px;
+    margin-left: 56.68px;
+    padding-top: 34.94px;
+    font-size: 25px;
+    color: #595757;
+    margin-bottom: 0px
+}
+#searchContent {
+    margin-left: 88px;
+    margin-top: 4px;
+    width: 1260px;
+    background-color: #FFF;
+    padding-bottom: 72px;
+}
+#home {
+    position: absolute;
+    margin-left: 1190px;
+    margin-top: 34px;
+}
+#searchLine {
+    margin-top: 12px;
+    margin-left: 56px;
+}
+#resultContainer {
+    margin-top: 22px;
+    margin-left: 56px;
+    width: 1160px;
+}
+#leftContent {
+    width: 852px;
+}
+#rightContent {
+    position: absolute;
+    margin-left: 852px;
+    width: 297px;
+}
+.moreForm input[type="submit"] {
+    position: absolute;
+    margin-left: 1152px;
+    margin-top: 277px;
+    width: 48px;
+    height: 10px;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 0);
+}
+#videoTitle {
+    margin: 0px 0px 0px 57px;
+    padding-top: 47px;
+}
+#tagContainer {
+    margin-left: 10px;
+    padding-top: 17px;
+    display: inline-block;
+}
+.tag {
+    margin: 0 0 0 0;
+    margin-right: 9px;
+    padding-left: 7px;
+    padding-right: 7px;
+    height: 19px;
+    border-width: 1px;
+    border-color: #898989;
+    border-style: solid;
+    font-size: 14px;
+    display: inline;
+}
+#rightArea {
+    display: inline-block;
+    float: right;
+    margin-top: 17px;
+    font-size: 9px;
+}
+#introContainer {
+    position: absolute;
+    height: 2561px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.67);
+    text-align: center;
+    padding-top: 66px;
+    display: none;
+}
+#introContent {
+    display: inline-block;
+}
+#introExit {
+    margin-left: -17px;
+    margin-top: -17px;
+    position: absolute;
+}
+#comment form {
+    margin-top: 26px;
+    margin-left: 8px;
+}
+#comment form input {
+    position: absolute;
+    margin-left: -73px;
+    padding: 0 0 0 0;
+    margin-top: 123px;
+    height: 21px;
+    width: 70px;
+    border: 0px;
+    background-color: rgba(0,0,0,0);
+}
+#comment textarea {
+    position: absolute;
+    margin-left: -840px;
+    margin-top: 4px;
+    width: 834px;
+    height: 105px;
+    border: 0px;
+    resize: none;
+}
+#submitComment {
+    float: right;
+    margin-right: 6px;
+    margin-top: 5px;
+}
+#commentContent {
+    margin-top: 46px;
+    margin-left: 22px;
+}
+.commentRight, .commentLeft {
+    margin-top: 10px;
+    margin-left: 1px;
+    margin-right: 12px;
+    margin-bottom: 29px;
+}
+.commentLeft {
+    position: absolute;
+}
+.commentRight {
+    margin-left: 57px;
+    overflow-wrap: break-word;
+    width: 746px;
+}
+.line {
+    display: block;
+}
+.commentRight p{
+    margin: 0 0 0 0;
+}
+#commentAuth {
+    color: #1081eb;
+}

@@ -1,0 +1,83 @@
+extend layout
+block head
+    script
+        function search(keywords) {
+            $.post("/search", {"keywords": keywords, sort: "time"}, function(data) {
+                document.write(data);
+            });
+        }
+    link(type='text/css', href='/iframe/css/lrtk.css', rel='stylesheet')
+    link(type='text/css', href='/iframe/css/prettyPhoto.css', rel='stylesheet')
+    script(type='text/javascript', src='/iframe/js/jquery.js')
+    script(type='text/javascript', src='/iframe/js/jquery.prettyPhoto.js')
+    script(type='text/javascript', src='/iframe/js/lrtk.js')
+    style(type='text/css')
+        body, td, th {
+            font-family: "Microsoft YaHei", Arial;
+        }
+block content
+    #searchContent
+        a#home(href="/")
+            img(src='/images/search/home.png')
+        p#videoTitle=video.tags[0] + " > " + video.name
+        img#searchLine(src='/images/search/line.png')
+        #resultContainer
+            #rightContent
+            #leftContent
+                - if (video.type === "纪录片" ||  video.type === "宣传片" || video.type === "documentory" || video.type === "proma") {
+                    - var player = "embed src='http://player.youku.com/player.php/sid/" + video.link.substring('http://v.youku.com/v_show/id_'.length, video.link.length - 5) + "/v.swf' allowFullScreen='true' quality='high' width='852' height='524' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'"
+                    #{player}
+                - } else {
+                    #album(style="height:542px; width:852px; overflow: visible")
+                        .infopic
+                            .picbox
+                                ul.gallery.piclist
+                                    - for (var i = 0; i < video.picture.length; ++i) {
+                                        li
+                                            a(href=video.picture[i], rel="prettyPhoto[]")
+                                                img(src=video.picture[i])
+                                    - }
+                            .pic_prev
+                            .pic_next
+                - }
+                #tagContainer
+                    - for (var i = 0; i < video.tags.length; ++i) {
+                        p.tag(onclick="search('#" + video.tags[i] + "')")
+                            =video.tags[i]
+                    - }
+                #rightArea
+                    img(src="/images/player/viewTimes.png")
+                    =" " + video.viewTimes + " "
+                    img(src="/images/player/commentTimes.png")
+                    =" " + video.comments.length + " "
+                    // - if (user) {
+                    //    img(src="/images/player/rate.png")
+                    //    - if (!user.rate) {
+                    //        button#rate(onclick="rate(" + video.id + ")")
+                    //    - } else {
+                    //        button#cancel(onclik="cancelRate(" + video.id + ")")
+                    //    - }
+                    //- }
+                #introduce
+                #comment
+                    form(action="/comment", method="POST")
+                        img(src="/images/player/commentArea.png")
+                        textarea(name="comment")
+                        img#submitComment(src="/images/player/submitComment.png")
+                        input(type="hidden", name="workID", value=video.id)
+                        input(type="hidden", name="userID", value=userID)
+                        input(type="submit", value="")
+                    #commentContent
+                        - for (var i = video.comments.length - 1; i >= 0; --i) {
+                            img.line(src="/images/player/line.png")
+                            .commentLeft
+                                img(src="/images/index/face.png")
+                            .commentRight
+                                p#commentAuth=video.comments[i].user
+                                p=video.comments[i].content
+                        - }
+    script(type='text/javascript')
+        $(document).ready(function(){
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+        $(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+        })

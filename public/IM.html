@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>IM</title>
+    <style>
+			#picture {
+				display: inline-block;
+				width:488px;
+				height:70px;
+				padding:10px;
+				border:1px solid #aaaaaa;
+			}
+    </style>
+    <script type="text/javascript">
+        var ws = null;
+
+        function connect()
+        {
+            if (!ws) {
+                var endpoint = "ws://imserver.duapp.com:80"
+                ws = new WebSocket(endpoint);
+                ws.onclose = function () {
+                    alert("连接已关闭");
+                    ws = null;
+                }
+                /*ws.onopen = function () {
+                    alert("连接已打开");
+                }*/
+                ws.onerror = function (evt) {
+                    alert("连接出错：" + evt.data);
+                    ws = null;
+                }
+                ws.onmessage = function (evt) {
+                    document.getElementById("receive").innerHTML += evt.data;
+                }
+            }
+            else
+                alert("已建立连接");
+        }
+
+        function portKeypress(e)
+        {
+            var keynum;
+            if (window.event) //IE
+                keynum = e.keyCode;
+            else if (e.which)
+                keynum = e.which;
+            if (keynum == 13)
+                connect();
+        }
+
+        function disconnect()
+        {
+            if (ws)
+                ws.close();
+        }
+
+        function send()
+        {
+            if (ws)
+            {
+                try
+                {
+                    ws.send("<p style='color: #c2c2c2'>" + document.getElementById("message").value + "</p>");
+                    document.getElementById("message").value = "";
+                }
+                catch (err)
+                {
+                    alert(err.Data);
+                }
+            }
+            else
+                alert("连接失效")
+        }
+
+        function messageKeyPress(e)
+        {
+            var keynum;
+            if (window.event) //IE
+                keynum = e.keyCode;
+            else if (e.which)
+                keynum = e.which;
+            if (keynum == 13)
+                send();
+        }
+        
+        function clearMsg()
+        {
+        	document.getElementById("receive").innerHTML = "";
+        }
+    </script>
+</head>
+<body style="text-align: center;" onload="connect()">
+		<br />
+	  Receive:
+    <div id="receive"></div>
+    <br />
+    Message:<input type="text" id="message" onkeypress="messageKeyPress(event)" /><button id="send" onclick="send()">send</button><div id="picture" draggable="true"></div>
+    <br />
+    <button id="clearMsg" onclick="clearMsg()">clear message</button>
+    <script>
+    var dropZone = document.getElementById('picture');
+
+    function handleFileDragEnter(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      this.classList.add('hovering');
+    }
+
+    function handleFileDragLeave(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      this.classList.remove('hovering');
+    }
+
+    function handleFileDragOver(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'copy';
+    }
+
+    function handleFileDrop(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      this.classList.remove('hovering');
+
+      var files = e.dataTransfer.files;
+      var outputStr = [];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+      	ws.send("<img src='" + this.result + "' /><br />");
+      };
+      for (var i = 0, f; f = files[i]; i++) {
+      	reader.readAsDataURL(f);
+      }
+    }
+
+    dropZone.addEventListener('dragenter', handleFileDragEnter, false);
+    dropZone.addEventListener('dragleave', handleFileDragLeave, false);
+    dropZone.addEventListener('dragover', handleFileDragOver, false);
+    dropZone.addEventListener('drop', handleFileDrop, false);
+  	</script>
+</body>
+</html>

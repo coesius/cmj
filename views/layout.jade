@@ -1,0 +1,43 @@
+!!!5
+html
+    head
+        link(rel="stylesheet", href="stylesheets/style.css")
+        script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+        block head
+    body
+        #container
+            #head
+                a#logo(href="/")
+                    img(src="/images/index/LOGO.png")
+                - if (!username) {
+                    a#login(href="http://bdfz-cas.pkuschool.edu.cn/cas/login?service=http://media.bdfzer.com/")
+                        img(src="/images/index/login.png")
+                - } else {
+                    #userInfo
+                        img(src="/images/index/face.png")
+                        br
+                        p#username=username
+                    #submit
+                        img(src="/images/index/submit.png")
+                    #modify
+                        img(src="/images/index/modify.png")
+                    a#logout(href="#")
+                        img(src="/images/index/logout.png")
+                    - if (userID) {
+                    p#userID=userID
+                    - }
+                - }
+            block content
+            #footer
+                img#copyright(src="/images/index/copyright.png")
+        script
+            var username = document.getElementById("username"), userID = document.getElementById("userID");
+            console.log("username=" + escape(username.innerHTML) +
+             "; userID=" + escape(userID.innerHTML));
+            if (username && userID) {
+                document.cookie = "userID = " + escape(userID.innerHTML);
+                console.log(document.cookie);
+                document.cookie = "username = " + escape(username.innerHTML);
+                console.log(document.cookie);
+            }
+        block bodyExtend

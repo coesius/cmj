@@ -1,0 +1,44 @@
+﻿!!!5
+html
+	head
+		meta(charset="utf-8")
+		title="第二届北大附中传媒节"
+		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+		script(src="/javascripts/script.js")
+		link(rel="stylesheet", type="text/css", href="/stylesheets/style.css")
+	body
+		.iframe_top#if_doc
+			.buttonX
+				p.pX="×"
+			iframe(src="/documentary.html")
+		.iframe_bottom#if_pro
+			.buttonX
+				p.pX="×"
+			iframe(src="/proma.html")
+		#container
+			#background
+			#ball_container
+				.ear#exam_ear
+					img(src="/images/index/exam_ear.png")
+				.ear#mage_ear
+					img(src="/images/index/mage_ear.png")
+				.ear#video_ear
+					img(src="/images/index/video_ear.png")
+				.ball#ball1
+					p.ball_title#exam_title 案例
+				.ball#ball2
+					p.ball_title#video_title 视频
+				.ball#ball3
+					p.ball_title#mage_title 媒体
+				.arrow.video_arrow#doc_arrow
+					img(src="/images/video/documentary.png")
+				.arrow.video_arrow#pro_arrow
+					img(src="/images/video/promo.png")
+				.arrow.mage_arrow#pap_arrow
+					img(src="/images/magezine/paper.png")
+				.arrow.mage_arrow#onli_arrow
+					img(src="/images/magezine/online.png")
+				p#title="第二届北大附中传媒节"
+			a#letter(href="submit")
+				img(src="/images/index/小信封.png")
+				

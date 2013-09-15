@@ -1,0 +1,28 @@
+//
+   Created with JetBrains WebStorm.
+   User: 123
+   Date: 13-9-8
+   Time: 下午11:20
+   To change this template use File | Settings | File Templates.
+
+extend layout
+block content
+    #searchContent
+        a#home(href="/")
+            img(src="/images/search/home.png")
+        p#title="搜索结果"
+        img#searchLine(src="/images/search/line.png")
+        #resultContainer
+            - for (var i = 0; i < result.length; ++i) {
+                .searchWork
+                    img.frame(src="/images/index/frame.png")
+                    a.workCover(href="/player?workID=" + result[i].id)
+                        img(src=result[i].coverURL)
+                    .workBottom
+                        p.workName=result[i].name
+                        p.workInfo
+                            img(src="/images/index/viewTimes.png")
+                            =" " + result[i].viewTimes
+                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                            =" " + result[i].comments.length
+            - }

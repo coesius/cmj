@@ -1,0 +1,10 @@
+!!!5
+html
+	head
+		style(src="/public/stylesheets/exam_style.css")
+		script(src="/public/javascripts/exam_script.js")
+	body
+		h1 案例
+		- for (var i = 0; i < 10; ++i) {
+			p.num(id=i)=i
+		- }

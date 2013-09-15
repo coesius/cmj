@@ -1,0 +1,210 @@
+﻿extend layout
+block head
+    script(src="./javascripts/script.js")
+block content
+    #middle
+        img.background#background1(src="/images/index/background1.jpg")
+        img.background#background2(src="/images/index/background2.jpg")
+        img.background#background3(src="/images/index/background3.png")
+        #buttonArea
+            img.middleButton.intro.buttonGray#introGray(src="/images/index/buttonIntroGray.png")
+            img.middleButton.intro.buttonBlue#introBlue(src="/images/index/buttonIntroBlue.png")
+            img.middleButton.before.buttonGray#beforeGray(src="/images/index/buttonBeforeGray.png")
+            img.middleButton.before.buttonBlue#beforeBlue(src="/images/index/buttonBeforeBlue.png")
+            img.middleButton.hot.buttonGray#hotGray(src="/images/index/buttonHotGray.png")
+            img.middleButton.hot.buttonBlue#hotBlue(src="/images/index/buttonHotBlue.png")
+    #content
+        .unit
+            .unitContainer
+                #search
+                    img(src="/images/index/search.png")
+                    form(method="POST", action="/search")
+                        input(type="text", name="keywords")
+                        input(type="hidden", name="sort", value="time");
+                        input(type="submit", value="")
+                p.unitTitle
+                    案例
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < example.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + example[i].id)
+                                    img(src=example[i].coverURL)
+                                .workBottom
+                                    p.workName=example[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + example[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + example[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#案例")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    纪录片
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < documentory.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + documentory[i].id)
+                                    img(src=documentory[i].coverURL)
+                                .workBottom
+                                    p.workName=documentory[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + documentory[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + documentory[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#纪录片")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    宣传片
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < proma.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + proma[i].id)
+                                    img(src=proma[i].coverURL)
+                                .workBottom
+                                    p.workName=proma[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + proma[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + proma[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#宣传片")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    纸质媒体
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < paperMedia.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + paperMedia[i].id)
+                                    img(src=paperMedia[i].coverURL)
+                                .workBottom
+                                    p.workName=paperMedia[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + paperMedia[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + paperMedia[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#纸质媒体")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    网络媒体
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < netMedia.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + netMedia[i].id)
+                                    img(src=netMedia[i].coverURL)
+                                .workBottom
+                                    p.workName=netMedia[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + netMedia[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + netMedia[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#网络媒体")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    海报
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < poster.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + poster[i].id)
+                                    img(src=poster[i].coverURL)
+                                .workBottom
+                                    p.workName=poster[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + poster[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + poster[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#海报")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    照片
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < photo.length; ++i) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + photo[i].id)
+                                    img(src=photo[i].coverURL)
+                                .workBottom
+                                    p.workName=photo[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + photo[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + photo[i].comments.length
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#照片")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+block bodyExtend
+    #introContainer
+        #introContent
+            img#intro(src="/images/index/intro.jpg")
+            a#introExit
+                img(src="/images/index/exit.png")
