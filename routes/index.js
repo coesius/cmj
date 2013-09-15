@@ -19,7 +19,7 @@ var pool = poolModule.Pool({
     create   : function(callback) {
         var server_options={'auto_reconnect':false,poolSize:1};
         var db_options={w:-1};
-        var mongoserver = new mongoDB.Server('saas.pkuschool.edu.cn', 27017,server_options );
+        var mongoserver = new mongoDB.Server('localhost', 27017,server_options );
         var db=new mongoDB.Db('test', mongoserver, db_options);
         db.open(function(err,db){
             if(err)return callback(err);
