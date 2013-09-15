@@ -197,7 +197,7 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < photo.length; ++i) {
-                            - if (!photo[i].previous)
+                            - if (!photo[i].previous) {
                             .work
                                 img.frame(src="/images/index/frame.png")
                                 a.workCover(href="/player?workID=" + photo[i].id)
