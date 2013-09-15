@@ -85,7 +85,7 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < proma.length; ++i) {
-                            - if (!proma[i].previous)
+                            - if (!proma[i].previous) {
                                 .work
                                     img.frame(src="/images/index/frame.png")
                                     a.workCover(href="/player?workID=" + proma[i].id)
