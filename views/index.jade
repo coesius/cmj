@@ -113,7 +113,7 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < paperMedia.length; ++i) {
-                            - if (!paperMedia[i].previous)
+                            - if (!paperMedia[i].previous) {
                                 .work
                                     img.frame(src="/images/index/frame.png")
                                     a.workCover(href="/player?workID=" + paperMedia[i].id)
