@@ -23,7 +23,7 @@ exports.createMember = function(name, work, mobile, eMail) {
     return ret;
 };
 
-exports.createProject = function(type, tag, name, person, mobile, member, intro, fileURL, coverURL, link, id, pictures, previous) {
+exports.createProject = function(type, tag, name, person, mobile, member, intro, fileURL, coverURL, link, id, pictures, previous, visible) {
     var ret = {};
     ret.type = type;
     ret.tags = tag || [];
@@ -44,5 +44,6 @@ exports.createProject = function(type, tag, name, person, mobile, member, intro,
     ret.previous = false || previous;
     ret.viewTimes = 0;
     ret.rate = 0;
+    ret.visible = false;
     return ret;
 };

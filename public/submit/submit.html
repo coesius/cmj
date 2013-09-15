@@ -19,6 +19,7 @@
     <![endif]-->
   </head>
   <body>
+  <form action="/upload" method="post" enctype="multipart/form-data">
     <div class="container">
      <div class="demo-headline">
         <h1 class="demo-logo">
@@ -26,57 +27,57 @@
           第二届北大附中传媒节
           <small>作品提交</small>
         </h1><br \><br \>
-        <input type="text" value="" placeholder="作品名称" class="span12">
-        <input type="text" value="" placeholder="负责人名称" class="span12">
-        <input type="text" value="" placeholder="负责人手机" class="span12">
+        <input name="name" type="text" value="" placeholder="作品名称" class="span12">
+        <input name="person" type="text" value="" placeholder="负责人名称" class="span12">
+        <input name="mobile" type="text" value="" placeholder="负责人手机" class="span12">
        
         <br \><hr>
         <div class="span3">
           <h3 class="demo-panel-title muted">所属类别</h3>
-          <label class="radio">
+          <label class="radio" onclick="chooseType('example')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 案例
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('documentory')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 纪录片
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('proma')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 宣传片
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('paperMedia')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 纸质媒体
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('netMedia')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 网络媒体
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('poster')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 海报
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('photo')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 纪实摄影
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('song')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 校园歌曲
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('story')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 故事片
 </label>
-<label class="radio">
+<label class="radio" onclick="chooseType('activity')">
             <span class="icons"><span class="first-icon fui-radio-unchecked"></span><span class="second-icon fui-radio-checked"></span></span><input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">
 活动纪实
 </label>
         </div>
         <div class="span3">
           <h3 class="demo-panel-title muted">所属标签</h3>
-          <input name="tagsinput" id="tagsinput" class="tagsinput" value="纪录片,纪实摄影,..." style="display: none;">
+          <input name="tags" id="tagsinput" class="tagsinput" value="纪录片,纪实摄影,..." style="display: none;">
           <div class="tooltip-inner">请先删除在上方默认标签，然后添加您自己标签.</div>
         
         </div>
@@ -97,6 +98,14 @@
 
     </div> <!-- /container --> <hr><div class="container">
 
+      <input type='hidden' name='_name' value='233' />
+      <input type='hidden' name='_mobile' value='233' />
+      <input type='hidden' name='eMail' value='233' />
+      <input type='hidden' name='work' value='233' />
+      <input type='hidden' name='_name' value='233' />
+      <input type='hidden' name='_mobile' value='233' />
+      <input type='hidden' name='eMail' value='233' />
+      <input type='hidden' name='work' value='233' />
     <h3 class="demo-panel-title">添加项目成员</h3>
         <div class="row"><div class="span12">
         <table class="table table-condensed" id="groupMemberInfo">
@@ -110,13 +119,6 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
                
               </tbody>
             </table></div>
@@ -126,7 +128,7 @@
         
         <div class="span3">
           <input type="text" value="" placeholder="分工" class="span3" id="work">
-        </div>              x
+        </div>
         <div class="span3">
           <input type="text" value="" placeholder="姓名" class="span3" id="_name">
         </div>
@@ -151,7 +153,7 @@
             <img src="images/icons/Book@2x.png">
           </div>
 
-          <a onclick="openBrowse()" class="btn btn-primary btn-large btn-block">上传</a>
+          <a onclick="openBrowseForCover()" class="btn btn-primary btn-large btn-block">上传</a>
 
           <p class="demo-download-text">在这里上传封面</p>
         </div>
@@ -160,9 +162,9 @@
 
           
           <p class="demo-download-text">在下方输入外链链接</p>
-          <input type="text" value="" class="span3">
+          <input name="link" type="text" value="" class="span3">
           <h3 class="demo-download-text">OR</h3>
-          <a class="btn btn-primary btn-large btn-block">上传</a>
+          <a onclick="openBrowserForFile()" class="btn btn-primary btn-large btn-block">上传</a>
 
           <p class="demo-download-text">在这里上传源文件</p>
           
@@ -170,23 +172,18 @@
         <div class="span3 offset2">
           <h3 class="demo-panel-title">提交</h3>
             
-            <a href="#" class="btn btn-primary btn-block btn-large">提交</a>
+            <a id="submit" href="#" class="btn btn-primary btn-block btn-large">提交</a>
           </div> <!-- /share -->
         </div>
         </div>
     
-    
-         
-     
-         
-        
-    
 
-
-
-
+    <input type="hidden" id="type" name="type" />
+    <input type="file" name="cover" id="cover" style="display: none" />
+    <input type="file" name="file" id="file" style="display: none" />
+    <input type="submit" id="submitForm" style="display: none" />
       </div>
-
+  </form>
     
     <!-- Load JS here for greater good =============================-->
     <script src="/submit/js/jquery-1.8.3.min.js"></script>
@@ -203,11 +200,20 @@
     <script src="http://vjs.zencdn.net/c/video.js"></script>
     <script src="/submit/js/application.js"></script>
     <script>
-        function openBrowse(){
+        function openBrowseForCover() {
+            var ie=navigator.appName=="Microsoft Internet Explorer" ? true : false;
+            if(ie){
+                document.getElementById("cover").click();
+            }else{
+                var a=document.createEvent("MouseEvents");
+                a.initEvent("click", true, true);
+                document.getElementById("cover").dispatchEvent(a);
+            }
+        }
+        function openBrowserForFile() {
             var ie=navigator.appName=="Microsoft Internet Explorer" ? true : false;
             if(ie){
                 document.getElementById("file").click();
-                document.getElementById("filename").value=document.getElementById("file").value;
             }else{
                 var a=document.createEvent("MouseEvents");
                 a.initEvent("click", true, true);
@@ -220,8 +226,32 @@
         });
         $("#push").click(function() {
             var table = document.getElementById("groupMemberInfo");
-            table.innerHTML += "<tr><td>" + table.rows.length + "</td><td>" + document.getElementById("_name").value + "</td><td>" + document.getElementById("_mobile").value + "</td><td>" + document.getElementById("eMail").value + "</td><td>" + document.getElementById("work").value + "</td></tr>"
+            table.innerHTML += "<tr><td>" + table.rows.length + "</td><td>" +
+                    document.getElementById("_name").value + "</td><td>" +
+                    document.getElementById("_mobile").value + "</td><td>" +
+                    document.getElementById("eMail").value + "</td><td>" +
+                    document.getElementById("work").value + "</td><input type='hidden' name='_name' value='" +
+                    document.getElementById("_name").value + " '/><input type='hidden' name='_mobile' value='" +
+                    document.getElementById("_mobile").value + " '/><input type='hidden' name='eMail' value='" +
+                    document.getElementById("eMail").value + " '/><input type='hidden' name='work' value='" +
+                    document.getElementById("work").value + " '/></tr>";
+            document.getElementById("_name").value = "";
+            document.getElementById("_mobile").value = "";
+            document.getElementById("eMail").value = "";
+            document.getElementById("work").value = "";
         });
+        $("#submit").click(function() {
+            /*var form = {};
+            form.file = document.getElementById("file").value;
+            form.cover = document.getElementById("cover").value;
+            $.post("/submit", form, function(data) {
+                document.write(data);
+            });*/
+            document.getElementById("submitForm").click();
+        });
+        function chooseType(type) {
+            document.getElementById("type").value = type;
+        }
     </script>
   </body>
 </html>

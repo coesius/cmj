@@ -213,9 +213,7 @@ exports.upload = function(req, res) {
             nSubmit = count;
             console.log(nSubmit);
             var filePath, coverPath;
-            console.log(req.files.cover.path);
-            console.log(req.files.file.path);
-            if (req.files.cover.name === "") {
+            if (!req.files || req.files.cover.name === "") {
                 fs.unlink("./" + req.files.cover.path);
                 fs.unlink("./" + req.files.file.path);
                 res.writeHead(200, {'content-type': 'text/html'});
@@ -237,6 +235,21 @@ exports.upload = function(req, res) {
                 for (var i = 2; field._name[i] || field.work[i] || field._mobile[i] || field.eMail[i]; ++i) {
                     member.push(struct.createMember(field._name[i], field.work[i], field._mobile[i], field.eMail[i]));
                 }
+                var typeToTag = {
+                    example: "案例",
+                    documentory: "纪录片",
+                    proma: "宣传片",
+                    paperMedia: "纸质媒体",
+                    netMedia: "网络媒体",
+                    poster: "海报",
+                    photo: "照片",
+                    song: "校园歌曲",
+                    story: "故事片",
+                    activity: "活动纪实"
+                };
+                console.log(field.tags);
+                field.tags = field.tags.split(',');
+                field.tags.push(typeToTag[field.type]);
                 var example = struct.createProject(field.type, field.tags, field.name, field.person, field.mobile, member, field.intro, filePath ? filePath.substr("/public".length) : undefined, coverPath.substr("/public".length), field.link, nSubmit);
                 db.collection("works").insert(example, function() {pool.release(db)});
                 res.writeHead(200, {'content-type': 'text/html'});
