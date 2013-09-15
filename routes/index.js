@@ -10,7 +10,7 @@ var dbport = 27017, db_options = {w: -1}, server_options = {};
 var mongoserver = new mongoDB.Server('localhost', dbport, server_options );
 var db = new mongoDB.Db("test", mongoserver, db_options);
 var CAS = require('./myCas');
-var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://media.bdfzer.com/'});
+var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://media.pkuschool.edu.cn/'});
 var struct = require("./dataStruct");
 var poolModule = require('generic-pool');
 
@@ -19,7 +19,7 @@ var pool = poolModule.Pool({
     create   : function(callback) {
         var server_options={'auto_reconnect':false,poolSize:1};
         var db_options={w:-1};
-        var mongoserver = new mongoDB.Server('localhost', 27017,server_options );
+        var mongoserver = new mongoDB.Server('saas.pkuschool.edu.cn', 27017,server_options );
         var db=new mongoDB.Db('test', mongoserver, db_options);
         db.open(function(err,db){
             if(err)return callback(err);

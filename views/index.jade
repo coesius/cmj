@@ -29,17 +29,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < example.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + example[i].id)
-                                    img(src=example[i].coverURL)
-                                .workBottom
-                                    p.workName=example[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + example[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + example[i].comments.length
+                            - if (!example[i].previous) {
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + example[i].id)
+                                        img(src=example[i].coverURL)
+                                    .workBottom
+                                        p.workName=example[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + example[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + example[i].comments.length
+                            -}
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -55,17 +57,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < documentory.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + documentory[i].id)
-                                    img(src=documentory[i].coverURL)
-                                .workBottom
-                                    p.workName=documentory[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + documentory[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + documentory[i].comments.length
+                            - if(!documentory[i].previous) {
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + documentory[i].id)
+                                        img(src=documentory[i].coverURL)
+                                    .workBottom
+                                        p.workName=documentory[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + documentory[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + documentory[i].comments.length
+                            - }
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -81,17 +85,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < proma.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + proma[i].id)
-                                    img(src=proma[i].coverURL)
-                                .workBottom
-                                    p.workName=proma[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + proma[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + proma[i].comments.length
+							- if (!proma[i].previous)
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + proma[i].id)
+                                        img(src=proma[i].coverURL)
+                                    .workBottom
+                                        p.workName=proma[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + proma[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + proma[i].comments.length
+                            - }
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -107,17 +113,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < paperMedia.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + paperMedia[i].id)
-                                    img(src=paperMedia[i].coverURL)
-                                .workBottom
-                                    p.workName=paperMedia[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + paperMedia[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + paperMedia[i].comments.length
+                            - if (!paperMedia[i].previous)
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + paperMedia[i].id)
+                                        img(src=paperMedia[i].coverURL)
+                                    .workBottom
+                                        p.workName=paperMedia[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + paperMedia[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + paperMedia[i].comments.length
+                            - }
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -133,17 +141,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < netMedia.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + netMedia[i].id)
-                                    img(src=netMedia[i].coverURL)
-                                .workBottom
-                                    p.workName=netMedia[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + netMedia[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + netMedia[i].comments.length
+                            - if (!netMedia[i].previous) {
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + netMedia[i].id)
+                                        img(src=netMedia[i].coverURL)
+                                    .workBottom
+                                        p.workName=netMedia[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + netMedia[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + netMedia[i].comments.length
+                            - }
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -159,17 +169,19 @@ block content
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < poster.length; ++i) {
-                            .work
-                                img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + poster[i].id)
-                                    img(src=poster[i].coverURL)
-                                .workBottom
-                                    p.workName=poster[i].name
-                                    p.workInfo
-                                        img(src="/images/index/viewTimes.png")
-                                        =" " + poster[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
-                                        =" " + poster[i].comments.length
+                            - if (!poster[i].previous) {
+                                .work
+                                    img.frame(src="/images/index/frame.png")
+                                    a.workCover(href="/player?workID=" + poster[i].id)
+                                        img(src=poster[i].coverURL)
+                                    .workBottom
+                                        p.workName=poster[i].name
+                                        p.workInfo
+                                            img(src="/images/index/viewTimes.png")
+                                            =" " + poster[i].viewTimes
+                                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                            =" " + poster[i].comments.length
+							- }
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
@@ -179,12 +191,13 @@ block content
         .unit
             .unitContainer
                 p.unitTitle
-                    照片
+                    即时摄影
                 .unitContent
                     img.leftButton(src="/images/index/leftButton.png")
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < photo.length; ++i) {
+                            - if (!photo[i].previous)
                             .work
                                 img.frame(src="/images/index/frame.png")
                                 a.workCover(href="/player?workID=" + photo[i].id)
