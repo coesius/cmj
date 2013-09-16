@@ -206,7 +206,7 @@ body {
 .workInfo img {
     margin-top: 2px;
 }
-#title {
+.title {
     margin-top: 0px;
     margin-left: 56.68px;
     padding-top: 34.94px;
@@ -226,7 +226,7 @@ body {
     margin-left: 1190px;
     margin-top: 34px;
 }
-#searchLine {
+.searchLine {
     margin-top: 12px;
     margin-left: 56px;
 }
