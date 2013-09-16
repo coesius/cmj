@@ -191,13 +191,13 @@ block content
         .unit
             .unitContainer
                 p.unitTitle
-                    即时摄影
+                    纪实摄影
                 .unitContent
                     img.leftButton(src="/images/index/leftButton.png")
                     img.rightButton(src="/images/index/rightButton.png")
                     .worksContent
                         - for (var i = 0; i < photo.length; ++i) {
-                            - if (!photo[i].previous)
+                            - if (!photo[i].previous) {
                             .work
                                 img.frame(src="/images/index/frame.png")
                                 a.workCover(href="/player?workID=" + photo[i].id)
@@ -213,7 +213,35 @@ block content
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
-                        input(type="hidden", name="keywords", value="#照片")
+                        input(type="hidden", name="keywords", value="#纪实摄影")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    校园歌曲
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < photo.length; ++i) {
+                            - if (!photo[i].previous) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + photo[i].id)
+                                    img(src=photo[i].coverURL)
+                                .workBottom
+                                    p.workName=photo[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + photo[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + photo[i].comments.length
+                            - }
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#纪实")
                         input(type="hidden", name="sort", value="time")
                         input(type="submit", value="")
 block bodyExtend

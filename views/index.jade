@@ -191,7 +191,7 @@ block content
         .unit
             .unitContainer
                 p.unitTitle
-                    即时摄影
+                    纪实摄影
                 .unitContent
                     img.leftButton(src="/images/index/leftButton.png")
                     img.rightButton(src="/images/index/rightButton.png")
@@ -213,7 +213,91 @@ block content
                         - }
                     form.moreForm(action="/search", method="POST")
                         img.more(src="/images/index/more.png")
-                        input(type="hidden", name="keywords", value="#照片")
+                        input(type="hidden", name="keywords", value="#纪实摄影")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    校园歌曲
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < song.length; ++i) {
+                            - if (!song[i].previous) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + song[i].id)
+                                    img(src=song[i].coverURL)
+                                .workBottom
+                                    p.workName=song[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + song[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + song[i].comments.length
+                            - }
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#校园歌曲")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    故事片
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < story.length; ++i) {
+                            - if (!story[i].previous) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + story[i].id)
+                                    img(src=story[i].coverURL)
+                                .workBottom
+                                    p.workName=story[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + story[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + story[i].comments.length
+                            - }
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#故事片")
+                        input(type="hidden", name="sort", value="time")
+                        input(type="submit", value="")
+        .unit
+            .unitContainer
+                p.unitTitle
+                    活动纪实
+                .unitContent
+                    img.leftButton(src="/images/index/leftButton.png")
+                    img.rightButton(src="/images/index/rightButton.png")
+                    .worksContent
+                        - for (var i = 0; i < activity.length; ++i) {
+                            - if (!activity[i].previous) {
+                            .work
+                                img.frame(src="/images/index/frame.png")
+                                a.workCover(href="/player?workID=" + story[i].id)
+                                    img(src=activity[i].coverURL)
+                                .workBottom
+                                    p.workName=activity[i].name
+                                    p.workInfo
+                                        img(src="/images/index/viewTimes.png")
+                                        =" " + activity[i].viewTimes
+                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+                                        =" " + activity[i].comments.length
+                            - }
+                        - }
+                    form.moreForm(action="/search", method="POST")
+                        img.more(src="/images/index/more.png")
+                        input(type="hidden", name="keywords", value="#活动纪实")
                         input(type="hidden", name="sort", value="time")
                         input(type="submit", value="")
 block bodyExtend
