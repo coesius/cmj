@@ -101,9 +101,18 @@ function renderIndex(res, arg) {
                                 arg.poster = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
                                 db.collection("works").find({type: "photo"}).toArray(function(err, items) {
                                     arg.photo = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
-                                    pool.release(db);
-                                    console.log(arg);
-                                    res.render("index", arg);
+                                    db.collection("works").find({type: "song"}).toArray(function(err, items) {
+                                        arg.song = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                        db.collection("works").find({type: "story"}).toArray(function(err, items) {
+                                            arg.story = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                            db.collection("works").find({type: "activity"}).toArray(function(err, items) {
+                                                arg.activity = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                                pool.release(db);
+                                                console.log(arg);
+                                                res.render("index", arg);
+                                            });
+                                        });
+                                    });
                                 });
                             });
                         });

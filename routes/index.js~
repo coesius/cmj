@@ -10,7 +10,7 @@ var dbport = 27017, db_options = {w: -1}, server_options = {};
 var mongoserver = new mongoDB.Server('localhost', dbport, server_options );
 var db = new mongoDB.Db("test", mongoserver, db_options);
 var CAS = require('./myCas');
-var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://localhost:3000/'});
+var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://localhost/'});
 var struct = require("./dataStruct");
 var poolModule = require('generic-pool');
 
@@ -27,7 +27,7 @@ var pool = poolModule.Pool({
         });
     },
     destroy  : function(db) { db.close(); },
-    max      : 20,
+    max      : 1000,
     idleTimeoutMillis : 30000,
     log : false 
 });
@@ -97,9 +97,24 @@ function renderIndex(res, arg) {
                         arg.paperMedia = items.sort(function(a, b) {return b.dateForCompare - a.dateForCompare});
                         db.collection("works").find({type: "netMedia"}).toArray(function(err, items) {
                             arg.netMedia = items.sort(function(a, b) {return b.dateForCompare - a.dateForCompare});
-                            pool.release(db);
-                            console.log(arg);
-                            res.render("index", arg);
+                            db.collection("works").find({type: "poster"}).toArray(function(err, items) {
+                                arg.poster = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                db.collection("works").find({type: "photo"}).toArray(function(err, items) {
+                                    arg.photo = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                    db.collection("works").find({type: "song"}).toArray(function(err, items) {
+                                        arg.song = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                        db.collection("works").find({type: "story"}).toArray(function(err, items) {
+                                            arg.story = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                            db.collection("works").find({type: "activity"}).toArray(function(err, items) {
+                                                arg.works = items.sort(function(a, b) {return b.dataForCompare - a.dataForCompare});
+                                                pool.release(db);
+                                                console.log(arg);
+                                                res.render("index", arg);
+                                            });
+                                        });
+                                    });
+                                });
+                            });
                         });
                     });
                 });
@@ -115,11 +130,11 @@ function cookieValidate(cookies, res, callback) {
     pool.acquire(function(err, db) {
         db.collection("users").find({"username": username, "userID": userID}).toArray(function(err, items) {
             if (items.length !== 0) {
-                ret = {"username": username};
+                ret = {"username": username, "userID": userID};
             }
             callback(ret);
+            pool.release(db);
         });
-        pool.release(db);
     });
 }
 
@@ -181,7 +196,7 @@ exports.player = function(req, res) {
                 console.log(items);
                 console.log(arg);
                 res.render('player', arg);
-                db.collection("works").update({"id": Number(id)}, {$inc: {"viewTimes": 1}}, function(pool.release(db);) {});
+                db.collection("works").update({"id": Number(id)}, {$inc: {"viewTimes": 1}}, function() {pool.release(db);});
             });
         });
     });
@@ -251,4 +266,28 @@ exports.search = function(req, res) {
             res.render("search", user);
         });
     });
+};
+
+exports.comment = function(req, res) {
+    var field = req.body;
+    if (!field.userID) {
+        field.userID = 0;
+    }
+    console.log(field.userID);
+    console.log(field);
+    pool.acquire(function(err, db) {
+        db.collection("users").find({userID: Number(field.userID)}).toArray(function(err, items) {
+            var auther;
+            if (items.length === 0) {
+                auther = "匿名用户"
+            } else {
+                auther = items[0].username;
+            }
+            db.collection("works").update({id: Number(field.workID)}, {$push: {comments: struct.createComment(auther, field.comment)}}, function() {
+                pool.release(db);
+            });
+        });
+    });
+    res.writeHead(301, {Location: "/player?workID=" + field.workID});
+    res.end();
 };
