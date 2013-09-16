@@ -10,7 +10,7 @@ var dbport = 27017, db_options = {w: -1}, server_options = {};
 var mongoserver = new mongoDB.Server('localhost', dbport, server_options );
 var db = new mongoDB.Db("test", mongoserver, db_options);
 var CAS = require('./myCas');
-var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://media.pkuschool.edu.cn/'});
+var cas = new CAS({base_url: 'http://bdfz-cas.pkuschool.edu.cn/cas', service: 'http://localhost/'});
 var struct = require("./dataStruct");
 var poolModule = require('generic-pool');
 
