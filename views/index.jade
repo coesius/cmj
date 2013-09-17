@@ -281,14 +281,14 @@ block content
                             - if (!activity[i].previous) {
                             .work
                                 img.frame(src="/images/index/frame.png")
-                                a.workCover(href="/player?workID=" + story[i].id)
+                                a.workCover(href="/player?workID=" + activity[i].id)
                                     img(src=activity[i].coverURL)
                                 .workBottom
                                     p.workName=activity[i].name
                                     p.workInfo
                                         img(src="/images/index/viewTimes.png")
                                         =" " + activity[i].viewTimes
-                                        img(src="/images/index/commentTimes.png", style="margin-left: 14px")
+            `                            img(src="/images/index/commentTimes.png", style="margin-left: 14px")
                                         =" " + activity[i].comments.length
                             - }
                         - }
