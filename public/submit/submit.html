@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flat UI Kit - HTML/PSD Design Framework</title>
+    <title>提交作品</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Loading Bootstrap -->
@@ -79,6 +79,21 @@
           <h3 class="demo-panel-title muted">所属标签</h3>
           <input name="tags" id="tagsinput" class="tagsinput" value="纪录片,纪实摄影,..." style="display: none;">
           <div class="tooltip-inner">请先删除在上方默认标签，然后添加您自己标签.</div>
+          
+          <h3 class="demo-panel-title muted">创作时间</h3>
+         <ul class="pager">
+                <li class="previous">
+                  <a href="#fakelink">
+                    <i class="fui-arrow-left"></i>
+                    <span id="year">2013年</span>
+                  </a>
+                </li>
+                <li class="next">
+                  <a href="#fakelink">
+                    <i class="fui-arrow-right"></i>
+                  </a>
+                </li>
+              </ul>
         
         </div>
         <div class="span5">
@@ -179,6 +194,7 @@
     
 
     <input type="hidden" id="type" name="type" />
+    <input type="hidden" id="previous" name="previous" value="false" />
     <input type="file" name="cover" id="cover" style="display: none" />
     <input type="file" name="file" id="file" style="display: none" />
     <input type="submit" id="submitForm" style="display: none" />
@@ -252,6 +268,21 @@
         function chooseType(type) {
             document.getElementById("type").value = type;
         }
+        $(".fui-arrow-right").click(function() {
+          var year = document.getElementById("year");
+          if (year.innerHTML === "2013年") {
+            year.innerHTML = "2012年及以前";
+            var previous = document.getElementById("previous");
+            previous.value = "true";
+          }
+        });
+        $(".fui-arrow-left").click(function() {
+          var year = document.getElementById("year");
+          if (year.innerHTML !== "2013年") {
+            year.innerHTML = "2013年";
+            document.getElementById("previous").value = "false";
+          }
+        });
     </script>
   </body>
 </html>

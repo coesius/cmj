@@ -250,7 +250,7 @@ exports.upload = function(req, res) {
                 console.log(field.tags);
                 field.tags = field.tags.split(',');
                 field.tags.push(typeToTag[field.type]);
-                var example = struct.createProject(field.type, field.tags, field.name, field.person, field.mobile, member, field.intro, filePath ? filePath.substr("/public".length) : undefined, coverPath.substr("/public".length), field.link, nSubmit);
+                var example = struct.createProject(field.type, field.tags, field.name, field.person, field.mobile, member, field.intro, filePath ? filePath.substr("/public".length) : undefined, coverPath.substr("/public".length), field.link, nSubmit. undefined, field.previous === "true" ? true : false);
                 db.collection("works").insert(example, function() {pool.release(db)});
                 res.writeHead(200, {'content-type': 'text/html'});
                 res.write("<html><head><meta charset='utf-8' /></head><body>喵成功啦！</body></html>");
