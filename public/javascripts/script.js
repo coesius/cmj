@@ -29,7 +29,7 @@ $(document).ready(function() {
     $("#background1").click(function() {
         $("#introContainer").show();
     });
-    $("#background2").click(function() {
+    $("#background3").click(function() {
         $.post("/search", {"keywords": "#往届", sort: "time"}, function(data) {
             document.write(data);
         });
