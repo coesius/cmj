@@ -351,3 +351,7 @@ body {
 #commentAuth {
     color: #1081eb;
 }
+.workCover img {
+    height: 230px;
+    width: 277px;
+}
